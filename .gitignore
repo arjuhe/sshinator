@@ -1,0 +1,18 @@
+# Obsidian per-user files
+docs/.obsidian/workspace*.json
+docs/.obsidian/cache
+
+# Vault: publish the how-to and templates only
+docs/**/*.md
+docs/**/*.html
+!docs/00 - Start Here/*.md
+!docs/Templates/*.md
+docs/Attachments/**
+!docs/**/.gitkeep
+
+# Local environments and build output
+venv/
+build/
+.pytest_cache/
+__pycache__/
+*.egg-info/

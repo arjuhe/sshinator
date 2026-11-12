@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sshinator"
+version = "0.1.0"
+description = "Browse, connect to, and edit hosts in ~/.ssh/config from a terminal UI."
+requires-python = ">=3.11"
+dependencies = ["textual>=8.2"]
+
+[project.scripts]
+sshinator = "sshinator.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-asyncio>=0.23"]
