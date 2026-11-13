@@ -21,18 +21,30 @@ The script installs [pipx](https://pipx.pypa.io/) with Homebrew if it is missing
 ## Use
 
 ```bash
-sshinator                     # open your ~/.ssh/config
-sshinator --config PATH       # open a copy of a config instead
-sshinator --reset             # show the first-run warning again
+sshinator                                # open your ~/.ssh/config in safe mode
+sshinator --config PATH                  # open a copy of a config instead
+sshinator --reset                        # show the first-run warning again
+sshinator --accept                       # accept the one-time warning and exit
+sshinator --safe                         # start in safe mode
+sshinator --dont-blame-doofenshmirtz     # advanced: unsafe mode
 ```
+
+- `--accept` writes the one-time gate acceptance and exits. It cannot be combined with any other option.
+- `--safe` starts in safe mode and deletes the unsafe acceptance file if it exists, so unsafe must be asked for again. It cannot be combined with `--dont-blame-doofenshmirtz`, `--accept`, or `--reset`.
+- `--dont-blame-doofenshmirtz` is the advanced unsafe mode. It needs the first-run warning to be accepted first, and it always shows the unsafe box. Accepting makes unsafe the default for later launches, until `--safe` is used. Declining keeps safe mode for that session.
+
+The default is safe mode. Safe mode shows a shadow-backup box before each save. Unsafe mode skips that box. A backup is still made.
+
+SSHinator has two tabs: Hosts (from your `~/.ssh/config`) and Known hosts (from `~/.ssh/known_hosts`, read-only). The left and right arrows switch tabs.
 
 | Key | Action |
 |---|---|
+| ← / → | Switch tabs |
 | ↑ / ↓ | Move the highlight |
 | ENTER | Connect to the highlighted host |
-| SPACE | Expand a group, or a host's details |
-| e | Edit the host |
-| / | Search by alias or HostName |
+| SPACE | Expand a group, or a host's details (Hosts tab) |
+| e | Edit the host (Hosts tab) |
+| / | Search by alias or HostName (Hosts tab) |
 | ESC | Clear the search, or quit when no search is open |
 | q | Quit from the host list |
 | Ctrl+R | Reload the config |

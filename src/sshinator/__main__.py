@@ -30,7 +30,7 @@ def main() -> None:
     modes.add_argument(
         "--safe",
         action="store_true",
-        help="start in safe_mode and make it the default again (undoes --dont-blame-doofenshmirtz)",
+        help="start in safe_mode and delete the unsafe acceptance file, so unsafe must be asked for again",
     )
     parser.add_argument(
         "--accept",

@@ -20,5 +20,6 @@ HELP_ITEMS = (
     "search: /",
     "clear/quit: ESC",
     "reload: CTRL+R",
+    "tabs: ←/→",
     "q quit",
 )
